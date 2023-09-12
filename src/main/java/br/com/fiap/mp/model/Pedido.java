@@ -1,5 +1,6 @@
 package br.com.fiap.mp.model;
 
+import br.com.fiap.mp.dto.RequisicaoNovoPedido;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -18,6 +19,15 @@ public class Pedido {
     private String urlProduto;
     private String urlImagem;
     private String descricao;
+
+    public Pedido(){}
+
+    public Pedido(RequisicaoNovoPedido requisicao){
+        this.nomeProduto = requisicao.nomeProduto();
+        this.urlProduto = requisicao.urlProduto();
+        this.urlImagem = requisicao.urlImagem();
+        this.descricao = requisicao.descricao();
+    }
 
     public Long getId() {
         return id;
