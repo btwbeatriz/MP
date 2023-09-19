@@ -15,21 +15,21 @@
                 <form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="post">
                     <div class="form-group">
                         <label for="nomeProduto">Produto</label>
-                        <input th:field="*{nomeProduto}" class="form-control" placeholder="Nome do Produto">
+                        <input th:errorclass="is-invalid" th:field="*{nomeProduto}" class="form-control" placeholder="Nome do Produto">
                         <small>Informe qual o nome do produto</small>
-                        <div th:errors="*{nomeProduto}">Erro do nome do produto</div>
+                        <div class="invalid-feedback" th:errors="*{nomeProduto}">Erro do nome do produto</div>
                     </div>
                     <div class="form-group">
                         <label for="urlProduto">Url</label>
-                        <input th:field="*{urlProduto}" class="form-control" placeholder="Url do Produto">
+                        <input th:errorclass="is-invalid" th:field="*{urlProduto}" class="form-control" placeholder="Url do Produto">
                         <small>Procure em um site o produto que você deseja e cole a url da página aqui</small>
-                        <div th:errors="*{urlProduto}">Erro da url do produto</div>
+                        <div class="invalid-feedback" th:errors="*{urlProduto}">Erro da url do produto</div>
                     </div>
                     <div class="form-group">
                         <label for="urlImagem">Imagem</label>
-                        <input th:field="*{urlImagem}" class="form-control" placeholder="Url da imagem">
+                        <input th:errorclass="is-invalid" th:field="*{urlImagem}" class="form-control" placeholder="Url da imagem">
                         <small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores</small>
-                        <div th:errors="*{urlImagem}">Erro da url da imagem</div>
+                        <div class="invalid-feedback" th:errors="*{urlImagem}">Erro da url da imagem</div>
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição</label>
