@@ -20,7 +20,7 @@ public class PedidoController {
     private PedidoRepository pedidoRepository;
 
     @GetMapping("/formulario")
-    public ModelAndView formulario(){
+    public ModelAndView formulario(RequisicaoNovoPedido requisicao){
         ModelAndView mv = new ModelAndView("pedido/formulario");
         return mv;
     }
