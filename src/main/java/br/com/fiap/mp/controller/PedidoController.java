@@ -3,6 +3,7 @@ package br.com.fiap.mp.controller;
 import br.com.fiap.mp.dto.RequisicaoNovoPedido;
 import br.com.fiap.mp.model.Pedido;
 import br.com.fiap.mp.repository.PedidoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class PedidoController {
     }
 
     @PostMapping("/novo")
-    public ModelAndView novo(RequisicaoNovoPedido requisicao){
+    public ModelAndView novo(@Valid RequisicaoNovoPedido requisicao){
         Pedido pedido = new Pedido(requisicao);
         pedidoRepository.save(pedido);
         ModelAndView mv = new ModelAndView("redirect:/home");
