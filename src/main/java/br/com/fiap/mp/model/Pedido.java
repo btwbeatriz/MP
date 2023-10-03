@@ -19,6 +19,8 @@ public class Pedido {
     private String urlProduto;
     private String urlImagem;
     private String descricao;
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
 
     public Pedido(){}
 
@@ -27,6 +29,7 @@ public class Pedido {
         this.urlProduto = requisicao.urlProduto();
         this.urlImagem = requisicao.urlImagem();
         this.descricao = requisicao.descricao();
+        this.status = StatusPedido.AGUARDANDO;
     }
 
     public Long getId() {
@@ -89,6 +92,15 @@ public class Pedido {
 
     public Pedido setDescricao(String descricao) {
         this.descricao = descricao;
+        return this;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public Pedido setStatus(StatusPedido status) {
+        this.status = status;
         return this;
     }
 }
