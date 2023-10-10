@@ -21,6 +21,9 @@ public class WebSecurityConfig {
                 .and()
                     .formLogin()
                         .loginPage("/login")
+                        .permitAll()
+                .and()
+                    .logout()
                         .permitAll();
         http.csrf().disable();
         return http.build();
