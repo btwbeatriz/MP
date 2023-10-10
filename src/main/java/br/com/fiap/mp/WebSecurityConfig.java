@@ -19,7 +19,9 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests()
                     .anyRequest().authenticated()
                 .and()
-                    .httpBasic();
+                    .formLogin()
+                        .loginPage("/login")
+                        .permitAll();
         http.csrf().disable();
         return http.build();
     }
