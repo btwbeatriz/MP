@@ -20,6 +20,7 @@ public class WebSecurityConfig {
                     .anyRequest().authenticated()
                 .and()
                     .httpBasic();
+        http.csrf().disable();
         return http.build();
     }
 
