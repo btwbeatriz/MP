@@ -1,6 +1,7 @@
 package br.com.fiap.mp.model;
 
 import br.com.fiap.mp.dto.RequisicaoNovoPedido;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -21,6 +22,10 @@ public class Pedido {
     private String descricao;
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
     public Pedido(){}
 
@@ -101,6 +106,15 @@ public class Pedido {
 
     public Pedido setStatus(StatusPedido status) {
         this.status = status;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Pedido setUser(User user) {
+        this.user = user;
         return this;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -17,8 +18,8 @@ public class HomeController {
     private PedidoRepository pedidoRepository;
 
     @GetMapping
-    public ModelAndView home(){
-        List<Pedido> pedidos = pedidoRepository.findAll();
+    public ModelAndView home(Principal principal){
+        List<Pedido> pedidos = pedidoRepository.findAllByUserUsername(principal.getName());
         ModelAndView mv = new ModelAndView("home");
         mv.addObject("pedidos", pedidos);
         return mv;
